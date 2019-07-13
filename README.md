@@ -7,9 +7,9 @@ Java Bootcamp
 
 ### Technologies user
 
-*Eclipse
-*Java
-*Git
+* Eclipse
+* Java
+* Git
 
 
-*** Lessons Learned
+### Lessons Learned
