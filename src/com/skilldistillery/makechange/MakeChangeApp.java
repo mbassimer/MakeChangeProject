@@ -13,67 +13,99 @@ public class MakeChangeApp {
 		System.out.println("How much did the customer pay?");
 		double tenderedAmount = kb.nextDouble();
 
-		double remainingTotal, changeOwed;
+		double endTransaction, changeOwed;
 
 		if (tenderedAmount == cost) {
 			System.out.println("Thank you for the business.");
 		}
 
-
 		else if (tenderedAmount > cost) {
 
-			changeOwed = tenderedAmount - cost ;
+			changeOwed = tenderedAmount - cost;
 			System.out.println("The amount that is owed: " + changeOwed);
+
+			int costNPennies = pennyConverter(changeOwed);
+			makeChange(costNPennies);
 
 		}
 
 		else if (tenderedAmount < cost) {
 			System.out.println("Insufficient funds.");
+
 		}
-		
+
 		else {
 			System.out.println("ERROR");
+
 		}
 
 	}
 
-	// In the cash register we will calculate the amount of change returned to a
-	// customer based on the purchase price and the amount tendered. We will also
-	// notify the attendant how many of each piece of currency ($20 ,$10 ,$5 ,$1,
-	// .25c, .10c, .05c, .01c) is needed to make the change for the customer. Change
-	// should be provided using the largest bill and coin denominations as possible.
-	// Denominations that are not used should not be displayed.
-
-//Hint: Mod operator
-
-
-
-
-//User Story #4
-//If the amount tendered is more than the cost of the item, display the number of bills and coins that should be given to the customer.
-
-//public static double changeOwed() {
-//	Double totalQuarters;
-
-//	switch {
-//	case Quarters: (changeOwed % 25 != 0);
-	
-	
-	
-//	}
-	
-///	double changeOwed = 
-	//	System.out.print("Change is owed :" + totalQuarters + " " + totalDimes + " " + totalNickels + " " + totalPennies + " "); 
-	//	userChoice = kb.nextInt();
-
-//	if (userChoice == randomComputerInt) {
-//		System.out.println("You guessed correctly!");
-//	} else if (userChoice < randomComputerInt) {
-//		System.out.println("Your guess is lower than the computer's randomly generated number.");
-//	} else {
-//		System.out.println("Your guess is higher than the computer's randomly generated number.");
+	public static int pennyConverter(double input) {
+		int numberPennies;
+		numberPennies = (int) ((input * 100) + 0.001);
+		return numberPennies;
 	}
 
-//}while(custPay!=tenderedAmount);
+	public static void makeChange(int costNPennies) {
+		int twenties = 0;
+		int tens = 0;
+		int fives = 0;
+		int ones = 0;
+		int quarters = 0;
+		int dimes = 0;
+		int nickels = 0;
+		int pennies = 0;
 
-//}
+		if (costNPennies >= 2000) {
+			twenties = costNPennies / 2000;
+			costNPennies = costNPennies % 2000;
+
+		}
+
+		if (costNPennies >= 1000) {
+			tens = costNPennies / 1000;
+			costNPennies = costNPennies % 1000;
+		}
+
+		if (costNPennies >= 500) {
+			fives = costNPennies / 500;
+			costNPennies = costNPennies % 500;
+		}
+
+		if (costNPennies >= 100) {
+			ones = costNPennies / 100;
+			costNPennies = costNPennies % 100;
+		}
+
+		if (costNPennies >= 25) {
+			quarters = costNPennies / 25;
+			costNPennies = costNPennies % 25;
+		}
+		if (costNPennies >= 10) {
+			dimes = costNPennies / 10;
+			costNPennies = costNPennies % 10;
+		}
+		if (costNPennies >= 5) {
+			nickels = costNPennies / 5;
+			costNPennies = costNPennies % 5;
+		}
+		if (costNPennies >= 1) {
+			pennies = costNPennies / 1;
+			costNPennies = pennies % 1;
+		}
+		System.out.println("Twenties received back:" + twenties);
+		System.out.println("Tens received back:" + tens );
+		System.out.println("Fives received back:" + fives );
+		System.out.println("Ones received back:" + ones );
+		System.out.println("Quarters received back:" + quarters);
+		System.out.println("Dimes received back:" + dimes );
+		System.out.println("Nickels received back:" + nickels );
+		System.out.println("Pennies received back:" + pennies );
+
+	}
+	
+	
+
+
+}
