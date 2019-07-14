@@ -7,10 +7,10 @@ public class MakeChangeApp {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 
-		System.out.println("Hello cashier, what is the cost of your customer's item?");
+		System.out.println("Hello cashier, what is the cost of your customer's item:  ");
 		double cost = kb.nextDouble();
 
-		System.out.println("How much did the customer pay?");
+		System.out.println("How much did the customer pay? ");
 		double tenderedAmount = kb.nextDouble();
 
 		double endTransaction, changeOwed;
@@ -22,7 +22,7 @@ public class MakeChangeApp {
 		else if (tenderedAmount > cost) {
 
 			changeOwed = tenderedAmount - cost;
-			System.out.println("The amount that is owed: " + changeOwed);
+			System.out.println("The amount that is owed: $ " + changeOwed);
 
 			int costNPennies = pennyConverter(changeOwed);
 			makeChange(costNPennies);
